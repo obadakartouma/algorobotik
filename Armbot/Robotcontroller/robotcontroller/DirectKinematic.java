@@ -45,17 +45,17 @@ public class DirectKinematic {
     }
 
     // Funktion zur Berechnung der Position des Endeffektors
-    public static double[] calculateEndEffectorPosition(double[] jointValues, double dStand, double femurLength, double tibiaLength1, double tibiaLength2, double tibiaUpShift, double standRightShift) {
+    public static double[][] calculateEndEffectorPose(double[] jointValues, double dStand, double femurLength, double tibiaLength1, double tibiaLength2, double tibiaUpShift, double standRightShift) {
         // Define the DH parameters for each joint
         double[][] dhParameters = {
-                {jointValues[0], dStand, 0, -Math.PI / 2}, // stand servo
-                {-jointValues[1], standRightShift, femurLength, Math.PI/2}, // femur servo
-                {jointValues[2], 0, 0, -Math.PI / 2}, // 90-degree femur servo
-                {-jointValues[3], 0, tibiaLength1, Math.PI / 2}, // tibia servo
+                {jointValues[0], dStand, 0, Math.PI / 2}, // stand servo
+                {jointValues[1], standRightShift, femurLength, -Math.PI/2}, // femur servo
+                {jointValues[2], 0, 0, Math.PI / 2}, // 90-degree femur servo
+                {jointValues[3], 0, tibiaLength1, -Math.PI / 2}, // tibia servo
                 {jointValues[4], tibiaUpShift, tibiaLength2, 0}, // 90-degree tibia servo
-                {-jointValues[5], 0, 0, 0},
+                {jointValues[5], 0, 0, Math.PI/2},
                 {jointValues[6], 0, 0, -Math.PI/2},
-                {jointValues[7], 0, 0, 0}
+                {jointValues[7], 0,  0, 0}
         };
 
         // Initialize transformation matrix as identity matrix
@@ -79,7 +79,7 @@ public class DirectKinematic {
                 transformationMatrix[2][3]
         };
 
-        return endEffectorPosition;
+        return transformationMatrix;
     }
 
 }

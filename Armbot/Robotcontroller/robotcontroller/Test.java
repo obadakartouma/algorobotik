@@ -16,9 +16,9 @@ import basics.math.Matrix;
 
 
 /**
-* A robot controller for basic tests.
-* @author J&ouml;rg Roth (<a href="mailto:Joerg.Roth@Wireless-earth.org">Joerg.Roth@Wireless-earth.org</a>)
-*/
+ * A robot controller for basic tests.
+ * @author J&ouml;rg Roth (<a href="mailto:Joerg.Roth@Wireless-earth.org">Joerg.Roth@Wireless-earth.org</a>)
+ */
 public class Test extends RobotController implements CommandListener {
 
     private final static double BALL1_X=40;
@@ -30,7 +30,7 @@ public class Test extends RobotController implements CommandListener {
     private final static double RELEASE_BALL_HEIGHT=70;
     private final static double ABOVE_BALL_HEIGHT=50;
     private final static double GRIP_BALL_HEIGHT=30;
-     
+
     private final static double GRIPPER_XY=0*Math.PI/180;
     private final static double GRIPPER_XZ=-90*Math.PI/180;
     private final static double GRIPPER_YZ=45*Math.PI/180;
@@ -47,19 +47,19 @@ public class Test extends RobotController implements CommandListener {
 
 
 
-@Override
+    @Override
     public String getName() {
         return "Test Controller";
     }
 
 
-@Override
+    @Override
     public String getDescription() {
         return getName()+" (no configuration)";
     }
 
 
-@Override
+    @Override
     public void init() {
         DebugPainterOverlay3D ovlAxes=debugPainter3D.getOverlay3D("Axes");
         ovlAxes.drawXYZAxis(0,0,0,0,100);
@@ -68,7 +68,7 @@ public class Test extends RobotController implements CommandListener {
     }
 
 
-@Override
+    @Override
     public void run() throws Exception {
 
         if (instanceNumber==0)
@@ -93,18 +93,23 @@ public class Test extends RobotController implements CommandListener {
                     jointvalues[i] = manipulator.getServo(i).getCurrentServoAngle();
                     System.out.println("Servo " + i + ": " + jointvalues[i] + "    " + manipulator.getServo(i).getDescription());
                 }
-                double[] pos = DirectKinematic.calculateEndEffectorPosition(
-                        jointvalues, 60, 50, 25, 25, 10, -15
+                double[][] transformationMatrix = DirectKinematic.calculateEndEffectorPose(
+                        jointvalues, 60, 50, 25, 25, 10, 15
                 );
+                double[] pos = {
+                        transformationMatrix[0][3],
+                        transformationMatrix[1][3],
+                        transformationMatrix[2][3]
+                };
                 double[] realpos = manipulator.currentWristPosition();
                 System.out.println("berechnete Postion ist: " + pos[0] + " " + pos[1] + " " + pos[2]);
                 System.out.println("Postion ist: " + realpos[0] + " " + realpos[1] + " " + realpos[2]);
                 DebugPainterOverlay3D  ovlGripperPos=debugPainter3D.getOverlay3D("Gripper Position1");
                 ovlGripperPos.clear();
                 double[][] rot = {
-                        {1.0, 0.0, 1.0},
-                        {0.0, 1.0, 0.0},
-                        {0.0, 0.0, 1.0}
+                        {transformationMatrix[0][0], transformationMatrix[0][1], transformationMatrix[0][2]},
+                        {transformationMatrix[1][0], transformationMatrix[1][1], transformationMatrix[1][2]},
+                        {transformationMatrix[2][0], transformationMatrix[2][1], transformationMatrix[2][2]}
                 };
                 ovlGripperPos.drawChar('X', pos[0], pos[1], pos[2], 10, rot, 165, 42, 42, 255);
                 ovlGripperPos.drawDot(pos[0], pos[1], pos[2], 162, 42, 42, 1);
@@ -138,7 +143,7 @@ public class Test extends RobotController implements CommandListener {
 
             if (!moveGripperLinear(BALL2_X,BALL2_Y,RELEASE_BALL_HEIGHT,GRIPPER_XY,GRIPPER_XZ,GRIPPER_YZ)) return;
             openGripper();
-            
+
 
         }
     }
@@ -156,7 +161,7 @@ public class Test extends RobotController implements CommandListener {
     }
 
 
-// Linear zu Position, Gripper-Winkel bleibt erhalten
+    // Linear zu Position, Gripper-Winkel bleibt erhalten
 // Ergebnis=Erfolg
     private boolean moveGripperLinear(double x,double y,double z,double gripperAngXY,double gripperAngXZ,double gripperAngYZ) {
 
@@ -167,8 +172,8 @@ public class Test extends RobotController implements CommandListener {
         ManipulatorResult result=manipulator.moveWristLinearToWithConstantSpeed(x,y,z,gripperAngXY,gripperAngXZ,gripperAngYZ,20d,0.8d,5.0d);
 
         if (!result.wasOK()) {
-           debugOut.println("moveWristLinearTo result "+result.resultCode+", "+result.resultMessage);
-           return false;
+            debugOut.println("moveWristLinearTo result "+result.resultCode+", "+result.resultMessage);
+            return false;
         }
 
         debugOut.println("Wait movement to complete");
@@ -184,7 +189,7 @@ public class Test extends RobotController implements CommandListener {
 
 
 
-// Servo-Interpolation zu Position:
+    // Servo-Interpolation zu Position:
 // Ergebnis=Erfolg
     private boolean moveGripper(double x,double y,double z,double gripperAngXY,double gripperAngXZ,double gripperAngYZ) {
 
@@ -194,10 +199,10 @@ public class Test extends RobotController implements CommandListener {
         ManipulatorResult result=manipulator.moveWristTo(x,y,z,gripperAngXY,gripperAngXZ,gripperAngYZ,1,Double.NaN,0.9d);
 
         if (!result.wasOK()) {
-           debugOut.println("moveWristTo result "+result.resultCode+", "+result.resultMessage);
-           if (result.exception!=null)
-               debugOut.printStackTrace(result.exception);
-           return false;
+            debugOut.println("moveWristTo result "+result.resultCode+", "+result.resultMessage);
+            if (result.exception!=null)
+                debugOut.printStackTrace(result.exception);
+            return false;
         }
 
         debugOut.println("Wait movement to complete TEST von Obadaaa");
@@ -215,15 +220,15 @@ public class Test extends RobotController implements CommandListener {
     // Für die Visualisierung von...bis bei einer Arm-Bewegung
     private void drawDebugPainterLineTo(double x,double y,double z) {
         double[] pos=manipulator.localToWorld(new double[]{x,y,z});
-          
+
         if (drawLineOld!=null) {
             DebugPainterOverlay3D ovlLineFromTo=debugPainter3D.getOverlay3D("Current movement");
             ovlLineFromTo.clear();
             ovlLineFromTo.drawArrow(drawLineOld[0],drawLineOld[1],drawLineOld[2],
-                                    pos[0],pos[1],pos[2],
-                                    10,0.3d,
-                                    255,0,0,255
-                                   );
+                    pos[0],pos[1],pos[2],
+                    10,0.3d,
+                    255,0,0,255
+            );
             ovlLineFromTo.paint();
         }
         drawLineOld=pos;
@@ -243,34 +248,34 @@ public class Test extends RobotController implements CommandListener {
         DebugPainterOverlay3D ovlGripperPos=debugPainter3D.getOverlay3D("Gripper Position");
         ovlGripperPos.clear();
         ovlGripperPos.drawArrow(pos1[0],pos1[1],pos1[2],
-                                pos2[0],pos2[1],pos2[2],
-                                10,0.3d,
-                                0,255,0,255
-                               );
+                pos2[0],pos2[1],pos2[2],
+                10,0.3d,
+                0,255,0,255
+        );
         ovlGripperPos.paint();
     }
 
 
-@Override
+    @Override
     public void pause() throws Exception{
         if (instanceNumber==0)
             commander.unregisterCommandListener(this);
     }
 
 
-@Override
+    @Override
     public void stop() throws Exception{
         if (instanceNumber==0)
             commander.unregisterCommandListener(this);
     }
 
 
-@Override  
+    @Override
     public void interrupt() throws Exception {
     }
 
 
-@Override  
+    @Override
     public void command(String command) throws Exception {
         if (command.equals("?")) {
             commander.println("  hello: ask for 'hello world'");
