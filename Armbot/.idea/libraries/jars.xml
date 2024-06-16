@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jars">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/Simulator.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/Manipulators.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/Basics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/Robotinterface.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/Platform.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

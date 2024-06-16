@@ -1,0 +1,37 @@
+20:37:14/570> SKILLS> Specified skills:
+20:37:14/572> SKILLS> +mandirkin: Manipulator provides direct kinematics
+20:37:14/572> SKILLS>    (assigned by default)
+20:37:14/572> SKILLS> +maninvkin: Manipulator provides inverse kinematics
+20:37:14/572> SKILLS>    (assigned by default)
+20:37:14/573> SKILLS> 
+20:37:14/967> SIM> Gripper model#0 instantiated:
+20:37:14/968> SIM> ----------------- DESCRIPTION -----------------
+20:37:14/968> SIM> Gripper with two linear motors
+20:37:14/968> SIM> -------------- END OF DESCRIPTION -------------
+20:37:14/976> SIM> Inverses Kinematics passed to 'Redundant arm with 5DOF + wrist': Built-in Inverse Jacobian
+20:37:14/977> SIM> Robot created:
+20:37:14/977> SIM>    8 servos
+20:37:14/977> SIM>    2 linear motors
+20:37:14/978> SIM>    0 passive elements
+20:37:14/978> SIM>    5 controllable joints:
+20:37:14/986> SIM>      1: Servo 'Stand-Servo' (0) -170.0...170.0°
+20:37:14/988> SIM>      2: Servo 'Femur-Servo' (1) 10.0...90.0°
+20:37:14/988> SIM>      3: Servo '90-Degree-Femur-Servo' (2) -90.0...90.0°
+20:37:14/988> SIM>      4: Servo 'Tibia-Servo' (3) -170.0...0.0°
+20:37:14/989> SIM>      5: Servo '90-Degree-Tibia-Servo' (4) -90.0...90.0°
+20:37:14/989> SIM>    0 closed chains
+20:37:14/989> SIM>    Direct Kinematics: Built-in Direct Kinematics
+20:37:14/989> SIM>    Inverse Kinematics: Built-in Inverse Jacobian
+20:37:14/990> SIM> Manipulator model #0 instantiated:
+20:37:14/990> SIM> ----------------- DESCRIPTION -----------------
+20:37:14/990> SIM> Redundant arm with 5DOF + wrist
+20:37:14/990> SIM> -------------- END OF DESCRIPTION -------------
+20:37:14/993> SIM> Robot controller #0 instantiated:
+20:37:14/993> SIM> ----------------- DESCRIPTION -----------------
+20:37:14/993> SIM> Test Controller (no configuration)
+20:37:14/994> SIM> -------------- END OF DESCRIPTION -------------
+20:37:15/920> VER> ArmBot Simulator: 1.01
+20:37:15/920> VER> Robot Interface:  1.01
+20:37:15/926> VER> ArmBot Simulator: 1.01
+20:37:15/927> VER> Robot Interface:  1.01
+20:37:26/645> SIM> bye bye...

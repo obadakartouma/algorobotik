@@ -1,0 +1,4 @@
+java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
+	at Robotcontroller/robotcontroller.DirectKinematic.calculateEndEffectorPosition(DirectKinematic.java:50)
+	at Robotcontroller/robotcontroller.Test.lambda$run$0(Test.java:96)
+	at java.base/java.lang.Thread.run(Thread.java:1570)

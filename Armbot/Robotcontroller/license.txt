@@ -1,0 +1,29 @@
+ArmBot by Joerg Roth
+Joerg.Roth@Wireless-earth.de
+
+License
+
+This program is protected by copyright and commercial law and
+regulations of the country in which it is published, duplicated,
+and/or used.
+
+You may copy and distribute verbatim copies of the program as 
+you receive it, in any medium, provided that you conspicuously 
+and appropriately publish on each copy an appropriate copyright 
+notice and disclaimer of warranty; keep intact all the notices 
+that refer to this license and to the absence of any warranty;
+and give any other recipients of the Program a copy of this 
+license along with the program.
+
+Access to the source code of this program as well as modifications 
+of this program ARE NOT ALLOWED.
+
+THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY 
+APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE 
+COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" 
+WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, 
+BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY 
+AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE 
+DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR 
+CORRECTION.

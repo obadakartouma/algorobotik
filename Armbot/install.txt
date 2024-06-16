@@ -1,0 +1,37 @@
+Folgende Schritt sind notwendig:
+1. Die Dateien/Ordner in ein Verzeichnis entpacken. Z.B. in d:\robot
+
+2. Das Java-Development-Kit installieren. Entweder OpenJDK oder das von Oracle. Das Verzeichnis, in dem die Binaries liegen, bitte merken. Bei mir ist das z.B. d:\jdk13\bin
+
+3. JavaFX installieren, z.B. über https://openjfx.io/ -> runtime images
+Hier bitte das Lib-Verzeichnis merken. Bei mir ist das d:\javafx-sdk-16\lib
+
+4. setpaths.bat editieren hier unter
+PATH, JAVA_BIN den gemerkten JDK-bin-Pfad eintragen und unter, JAVA_HOME ist das Verzeichnis darüber
+JAVAFX_HOME die JavaFX-lib-Pfad eintragen
+Dann setpaths.bat ausführen.
+
+5. Jetzt kann man das komplete Projekt mit batches\make.bat übersetzen (falls vorhanden).
+Mit batches...\....bat kann eine Beispielsimulation ausgeführt werden. Andere batches sind für andere Robot-Controller zuständig.
+ACHTUNG: nicht in das Verzeichnis 'batches...' reinwandern, sondern aus dem Installationsverzeichnis (in dem Beispiel d:\robot) aufrufen, indem man 'batches...\' voranstellt.
+
+Bedeutung der batches...-Verzeichnisse (es müssen nicht immer alle ausgeliefert worden sein)
+batches8: Batches für Java 8 (ohne Module)
+batches: Batches für Java >=9, Verwendung der Module-Verzeichnisse
+batchesJar: Batches für Java >=9, Verwendung von Modulen in Jar-Dateien
+
+Weitere Verzeichnisse
+environents: Umgebungsdateien
+logs: Logfiles der Simulation
+javadoc: Klassendokumentation
+resources: Iconen, Schriften etc.
+Robotcontroller: das Modul, das die RobotController als Quellen enthält
+javafx-sdk-16 (wenn ausgeliefert): JavaFX für Windows. Es wird aber empfohlen, das JavaFX für die entspechende Plattform selbst zu installieren
+
+------------------------------------------------------------------------------
+Leider gibt es keine einfache Installation, wie man das von kommerziellen Anwendungen gewohnt ist. Das wäre bei der Vielzahl von Plattformen auch schwierig. Auch wenn ich diese Schritte getestet habe, passiert es manchmal, dass ich was vergessen habe (was dann auf meinem Rechner existiert, nicht aber auf ihrem). Wenn also etwas fehlt (meist ein jar-File), bitte melden, ich kann das dann schnell nachliefern.
+
+Die Beschreibung ist auch losgelöst von einer speziellen IDE. Die Schritte hier müssen in einer Windows-Kommandozeile ausgeführt werden.
+Wenn später in einer IDE entwickelt werden soll, müssen die Pfadangaben aus den Batches in den Projekt-Einstellungen der IDE eintragen werden. Da die IDEs das unterschiedlich machen, kann ich das nicht generell vorgeben. Es aber für jeden Pfad in Java (Classpath, Modulpath etc.) ein Pendant in der IDE.
+Die batches sind "Windows". Für Linux/Mac müssten die batches in die Unix-Versionen geändert werden, z.B: die ';' durch ':' ersetzen, die '\' durch '/'ersetzt werden, außerdem die Variablen-Verwendung %...% durch das Linux-Pendant.
+ 

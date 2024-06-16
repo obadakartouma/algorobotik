@@ -1,0 +1,14 @@
+DEBUG> 20:37:18/387  ========================= CONTROLLER-START =========================
+DEBUG> 20:37:18/388  **** Start controller #0 robotcontroller.Test
+DEB#0> 20:37:18/389  Manipulator Redundant arm with 5DOF + wrist, location (0.0 0.0 0.0 ), orientation 0.0°
+DEB#0> 20:37:18/395  moveWristTo 40.0 -40.0 50.0 0.0° -90.0° 45.0°
+DEB#0> 20:37:18/482  Wait movement to complete TEST von Obadaaa
+DEB#0> 20:37:21/498  Movement completed
+DEB#0> 20:37:21/506  moveWristLinearTo 40.0 -40.0 30.0 0.0° -90.0° 45.0°
+DEB#0> 20:37:21/527  Wait movement to complete
+DEB#0> 20:37:22/722  Movement completed
+DEB#0> 20:37:23/130  moveWristLinearTo 40.0 -40.0 70.0 0.0° -90.0° 45.0°
+DEB#0> 20:37:23/162  Wait movement to complete
+DEB#0> 20:37:25/471  Movement completed
+DEB#0> 20:37:25/471  moveWristLinearTo 40.0 -40.0 70.0 0.0° 0.0° 0.0°
+DEB#0> 20:37:25/471  Wait movement to complete
