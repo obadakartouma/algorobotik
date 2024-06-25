@@ -81,29 +81,19 @@ public class Test extends RobotController implements CommandListener {
             while (isRunning()) {
                 Time.sleep(100);
                 drawDebugPainterGripper();
-                // Motor[] motors = manipulator.getMotors();
+                Motor[] motors = manipulator.getMotors();
                 double[] jointvalues = new double[8];
-                /* for (Motor m : motors) {
-                    jointvalues[0] = m.getCurrentValue();
-                    System.out.println("Motors: " + m.getDescription() + " , ID: " + m.getID());
-                    System.out.println("Infos: " + manipulator.getServo(m.getID()).getCurrentServoAngle());
-                } */
-                // double[] jointvalues = manipulator.jointValues();
-                for (int i = 0; i < 8; i++) {
+                // hier motorlength + 3 weil getmotors die 3 wristgelenke nicht zurückgibt
+                for (int i = 0; i < motors.length + 3; i++) {
                     jointvalues[i] = manipulator.getServo(i).getCurrentServoAngle();
                     System.out.println("Servo " + i + ": " + jointvalues[i] + "    " + manipulator.getServo(i).getDescription());
                 }
-                double[][] transformationMatrix = DirectKinematic.calculateEndEffectorPose(
-                        jointvalues, 60, 50, 25, 25, 10, 15
-                );
+                double[][] transformationMatrix = DirectKinematic.calculateEndEffectorPose(jointvalues);
                 double[] pos = {
                         transformationMatrix[0][3],
                         transformationMatrix[1][3],
                         transformationMatrix[2][3]
                 };
-                double[] realpos = manipulator.currentWristPosition();
-                System.out.println("berechnete Postion ist: " + pos[0] + " " + pos[1] + " " + pos[2]);
-                System.out.println("Postion ist: " + realpos[0] + " " + realpos[1] + " " + realpos[2]);
                 DebugPainterOverlay3D  ovlGripperPos=debugPainter3D.getOverlay3D("Gripper Position1");
                 ovlGripperPos.clear();
                 double[][] rot = {
@@ -112,7 +102,6 @@ public class Test extends RobotController implements CommandListener {
                         {transformationMatrix[2][0], transformationMatrix[2][1], transformationMatrix[2][2]}
                 };
                 ovlGripperPos.drawChar('X', pos[0], pos[1], pos[2], 10, rot, 165, 42, 42, 255);
-                ovlGripperPos.drawDot(pos[0], pos[1], pos[2], 162, 42, 42, 1);
                 ovlGripperPos.paint();
 
             }

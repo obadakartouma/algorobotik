@@ -1,37 +1,37 @@
-23:00:15/298> SKILLS> Specified skills:
-23:00:15/299> SKILLS> +mandirkin: Manipulator provides direct kinematics
-23:00:15/299> SKILLS>    (assigned by default)
-23:00:15/299> SKILLS> +maninvkin: Manipulator provides inverse kinematics
-23:00:15/299> SKILLS>    (assigned by default)
-23:00:15/300> SKILLS> 
-23:00:15/683> SIM> Gripper model#0 instantiated:
-23:00:15/683> SIM> ----------------- DESCRIPTION -----------------
-23:00:15/684> SIM> Gripper with two linear motors
-23:00:15/684> SIM> -------------- END OF DESCRIPTION -------------
-23:00:15/691> SIM> Inverses Kinematics passed to 'Redundant arm with 5DOF + wrist': Built-in Inverse Jacobian
-23:00:15/691> SIM> Robot created:
-23:00:15/693> SIM>    8 servos
-23:00:15/693> SIM>    2 linear motors
-23:00:15/693> SIM>    0 passive elements
-23:00:15/694> SIM>    5 controllable joints:
-23:00:15/701> SIM>      1: Servo 'Stand-Servo' (0) -170.0...170.0°
-23:00:15/701> SIM>      2: Servo 'Femur-Servo' (1) 10.0...90.0°
-23:00:15/702> SIM>      3: Servo '90-Degree-Femur-Servo' (2) -90.0...90.0°
-23:00:15/702> SIM>      4: Servo 'Tibia-Servo' (3) -170.0...0.0°
-23:00:15/703> SIM>      5: Servo '90-Degree-Tibia-Servo' (4) -90.0...90.0°
-23:00:15/703> SIM>    0 closed chains
-23:00:15/703> SIM>    Direct Kinematics: Built-in Direct Kinematics
-23:00:15/703> SIM>    Inverse Kinematics: Built-in Inverse Jacobian
-23:00:15/704> SIM> Manipulator model #0 instantiated:
-23:00:15/704> SIM> ----------------- DESCRIPTION -----------------
-23:00:15/704> SIM> Redundant arm with 5DOF + wrist
-23:00:15/705> SIM> -------------- END OF DESCRIPTION -------------
-23:00:15/708> SIM> Robot controller #0 instantiated:
-23:00:15/708> SIM> ----------------- DESCRIPTION -----------------
-23:00:15/709> SIM> Test Controller (no configuration)
-23:00:15/710> SIM> -------------- END OF DESCRIPTION -------------
-23:00:16/748> VER> ArmBot Simulator: 1.01
-23:00:16/748> VER> Robot Interface:  1.01
-23:00:16/754> VER> ArmBot Simulator: 1.01
-23:00:16/754> VER> Robot Interface:  1.01
-23:00:48/058> SIM> bye bye...
+13:23:56/577> SKILLS> Specified skills:
+13:23:56/578> SKILLS> +mandirkin: Manipulator provides direct kinematics
+13:23:56/578> SKILLS>    (assigned by default)
+13:23:56/578> SKILLS> +maninvkin: Manipulator provides inverse kinematics
+13:23:56/578> SKILLS>    (assigned by default)
+13:23:56/579> SKILLS> 
+13:23:56/949> SIM> Gripper model#0 instantiated:
+13:23:56/951> SIM> ----------------- DESCRIPTION -----------------
+13:23:56/951> SIM> Gripper with two linear motors
+13:23:56/951> SIM> -------------- END OF DESCRIPTION -------------
+13:23:56/957> SIM> Inverses Kinematics passed to 'Redundant arm with 5DOF + wrist': Built-in Inverse Jacobian
+13:23:56/957> SIM> Robot created:
+13:23:56/957> SIM>    8 servos
+13:23:56/957> SIM>    2 linear motors
+13:23:56/958> SIM>    0 passive elements
+13:23:56/958> SIM>    5 controllable joints:
+13:23:56/966> SIM>      1: Servo 'Stand-Servo' (0) -170.0...170.0°
+13:23:56/967> SIM>      2: Servo 'Femur-Servo' (1) 10.0...90.0°
+13:23:56/967> SIM>      3: Servo '90-Degree-Femur-Servo' (2) -90.0...90.0°
+13:23:56/967> SIM>      4: Servo 'Tibia-Servo' (3) -170.0...0.0°
+13:23:56/968> SIM>      5: Servo '90-Degree-Tibia-Servo' (4) -90.0...90.0°
+13:23:56/968> SIM>    0 closed chains
+13:23:56/968> SIM>    Direct Kinematics: Built-in Direct Kinematics
+13:23:56/968> SIM>    Inverse Kinematics: Built-in Inverse Jacobian
+13:23:56/969> SIM> Manipulator model #0 instantiated:
+13:23:56/969> SIM> ----------------- DESCRIPTION -----------------
+13:23:56/969> SIM> Redundant arm with 5DOF + wrist
+13:23:56/969> SIM> -------------- END OF DESCRIPTION -------------
+13:23:56/971> SIM> Robot controller #0 instantiated:
+13:23:56/971> SIM> ----------------- DESCRIPTION -----------------
+13:23:56/971> SIM> Test Controller (no configuration)
+13:23:56/972> SIM> -------------- END OF DESCRIPTION -------------
+13:23:57/925> VER> ArmBot Simulator: 1.01
+13:23:57/925> VER> Robot Interface:  1.01
+13:23:57/930> VER> ArmBot Simulator: 1.01
+13:23:57/930> VER> Robot Interface:  1.01
+13:24:22/640> SIM> bye bye...

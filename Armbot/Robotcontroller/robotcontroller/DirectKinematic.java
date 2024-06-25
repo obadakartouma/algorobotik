@@ -45,14 +45,33 @@ public class DirectKinematic {
     }
 
     // Funktion zur Berechnung der Position des Endeffektors
-    public static double[][] calculateEndEffectorPose(double[] jointValues, double dStand, double femurLength, double tibiaLength1, double tibiaLength2, double tibiaUpShift, double standRightShift) {
+    /*
+    * die dh Parameter für simplearm:
+    {jointValues[0], 60, 0, Math.PI/2},
+    {jointValues[1], 0, 50, 0},
+    {jointValues[2], 0, 50, -Math.PI/2},
+    {jointValues[3], 0, 0, Math.PI/2},
+    {jointValues[4], 0, 0, -Math.PI/2},
+    {jointValues[5], 0, 0, 0}
+    *
+    * die dh parameter für redundantarm:
+    {jointValues[0], 60, 0, Math.PI / 2}, // stand servo
+    {jointValues[1], 15, 50, -Math.PI/2}, // femur servo
+    {jointValues[2], 0, 0, Math.PI / 2}, // 90-degree femur servo
+    {jointValues[3], 0, 25, -Math.PI / 2}, // tibia servo
+    {jointValues[4], 10, 25, 0}, // 90-degree tibia servo
+    {jointValues[5], 0, 0, Math.PI/2},
+    {jointValues[6], 0, 0, -Math.PI/2},
+    {jointValues[7], 0,  0, 0}
+    * */
+    public static double[][] calculateEndEffectorPose(double[] jointValues) {
         // Define the DH parameters for each joint
         double[][] dhParameters = {
-                {jointValues[0], dStand, 0, Math.PI / 2}, // stand servo
-                {jointValues[1], standRightShift, femurLength, -Math.PI/2}, // femur servo
+                {jointValues[0], 60, 0, Math.PI / 2}, // stand servo
+                {jointValues[1], 15, 50, -Math.PI/2}, // femur servo
                 {jointValues[2], 0, 0, Math.PI / 2}, // 90-degree femur servo
-                {jointValues[3], 0, tibiaLength1, -Math.PI / 2}, // tibia servo
-                {jointValues[4], tibiaUpShift, tibiaLength2, 0}, // 90-degree tibia servo
+                {jointValues[3], 0, 25, -Math.PI / 2}, // tibia servo
+                {jointValues[4], 10, 25, 0}, // 90-degree tibia servo
                 {jointValues[5], 0, 0, Math.PI/2},
                 {jointValues[6], 0, 0, -Math.PI/2},
                 {jointValues[7], 0,  0, 0}
